@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  margin: 50 auto 0 auto;
+  font-family: 'Courgette', cursive;
+  font-size: 5.625rem;
+  color: #66BFBF;
+}
+
+h2 {
+  font-family: 'Courgette', cursive;
+  font-size: 2.5rem;
+  color: #66BFBF;
+}
+
+h3 {
+  font-family: 'Courgette', cursive;
+  color: #11999E;
+}
+
+p {
+  font-family: 'Kalam', cursive;
+}
+
+a {
+  color: #11999E;
+  text-decoration: none;
+}
+
+hr {
+  width: 3%;
+  border-top: 5px dotted #EAF6F6 ;
+  margin: auto;
+  border-style: dotted none none none;
+}
+
+.skill-row {
+  width: 50%;
+  margin: 50px auto 100px auto;
+  text-align: left;
+  line-height: 2;
+}
+
+.sklone {
+  width: 25%;
+  float: left;
+  margin-right: 30px;
+}
+
+.skltwo {
+  width: 25%;
+  float: right;
+  margin-left: 30px;
+}
+
+.blink {
+  font-weight: normal;
+}
+
+.top-container {
+  background-color: #EAF6F6;
+  position: relative;
+  padding-top: 100px;
+  margin-bottom: 30px;
+}
+
+
+
+.bottom-container {
+  margin-top: 50px;
+  background-color: #66BFBF;
+  padding: 50px 0 50px 0;
+
+}
+
+.name {
+  text-decoration: underline;
+}
+
+.bottom-cloud {
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+
+.top-cloud {
+  position: absolute;
+  right: 300px;
+  top: 50px;
+}
+
+
+.button {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   color: #FFFFFF;
+   font-family: 'Kalam', cursive;
+   font-size: 14px;
+   font-weight: 100;
+   padding: 14px;
+   background-color: #11999E;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+.profile {
+  margin-bottom: 50px;
+}
+
+.company {
+  color: white;
+}
+
+.footer-link {
+  position: relative;
+  margin-right: 50px;
+  font-family: 'Kalam', cursive;
+}
