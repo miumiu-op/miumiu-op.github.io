@@ -1,2 +1,2 @@
 # miumiu-op.github.io
-go somewhere and log anywhere
+go somewhere and log everywhere
