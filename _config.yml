@@ -1,4 +1,4 @@
 remote_theme: pages-themes/cayman@v0.2.0
-#baseurl: "/miumiu-op.github.io"  # 将 your-repo-name 替换为你的 GitHub 仓库名称
+baseurl: "/miumiu-op.github.io"  # 将 your-repo-name 替换为你的 GitHub 仓库名称
 include:
   - _data
