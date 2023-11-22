@@ -1,4 +1,8 @@
-remote_theme: pages-themes/cayman@v0.2.0
-baseurl: "/miumiu-op.github.io"  # 将 your-repo-name 替换为你的 GitHub 仓库名称
+title: Follow miumiu
+remote_theme: pages-themes/minimal@v0.2.0
+logo: /assets/img/profile.png
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
+#baseurl: "/miumiu-op.github.io"  # 将 your-repo-name 替换为你的 GitHub 仓库名称
 include:
   - _data
