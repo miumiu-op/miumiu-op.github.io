@@ -4,7 +4,7 @@ title: Home
 ---
 I'm using this page to ~~play around GitHub Pages~~ present myself as a technical writer.
 
-## Who am I？
+## Who Am I？
 
 Hello, I'm Miaomiao Pan, but you can call me Miumiu—it's what my friends usually go with. With over 4 years of technical writing experience, my journey has spanned various industries, each presenting unique challenges and opportunities.
 
@@ -17,6 +17,7 @@ What sets me apart is not just my commitment to creating effective documentation
 I believe that effective communication is foundational to success, and I'm eager to bring my skills to your team. If there's anything you'd like to discuss or share, please feel free to reach out. I'm always open to new opportunities and conversations.
 
 
-## Writing samples
+## Writing Samples
 
-[Sample 1: User guide](./sample1-guide.html)
+- [Sample 1: User guide](./samples/sample1-guide.html)
+- [Sample 2: Documentation Valiadation Script](./samples/sample2-script.html)

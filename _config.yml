@@ -6,3 +6,7 @@ plugins:
 baseurl: "/miumiu-op.github.io"  # 将 your-repo-name 替换为你的 GitHub 仓库名称
 include:
   - _data
+collections:
+  samples:
+    output: true
+    permalink: /samples/:title
