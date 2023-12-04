@@ -31,10 +31,6 @@ jobs:
           ref: ${{ github.event.pull_request.base.sha }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Clear Build Cache
-        run: |
-          git rm -r --cached .
-          git reset --hard
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
