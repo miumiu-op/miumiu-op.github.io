@@ -17,7 +17,7 @@ What sets me apart is not just my commitment to creating effective documentation
 I believe that effective communication is foundational to success, and I'm eager to bring my skills to your team. If there's anything you'd like to discuss or share, please feel free to reach out. I'm always open to new opportunities and conversations.
 
 
-## Writing Samples
+## Writing Portfolio
 
-- [Sample 1: User guide](./samples/sample1-guide.html)
+- [Sample 1: User Guide](./samples/sample1-guide.html)
 - [Sample 2: Documentation Valiadation Script](./samples/sample2-script.html)
