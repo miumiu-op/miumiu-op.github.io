@@ -12,15 +12,15 @@ layout: default
 
   <!-- Link to Next Sample Page (if available) -->
   {% if page.next %}
-    <p><a href="{{ site.baseurl }}{{ page.next.url }}">Next sample: {{ page.next.title }}</a></p>
+    <p><a href="{{ site.baseurl }}{{ page.next.url }}">Next: {{ page.next.title }}</a></p>
   {% endif %}
 
   <!-- Link to Previous Sample Page (if available) -->
   {% if page.previous %}
-    <p><a href="{{ site.baseurl }}{{ page.previous.url }}">Previous sample: {{ page.previous.title }}</a></p>
+    <p><a href="{{ site.baseurl }}{{ page.previous.url }}">Previous: {{ page.previous.title }}</a></p>
   {% endif %}
 
   <!-- Link to Home Page -->
-  <p><a href="{{ site.baseurl | append: '/' }}">Go back to the home page</a></p>
+  <p><a href="{{ site.baseurl | append: '/' }}">Home</a></p>
 
 </div>

@@ -5,7 +5,6 @@ author: miumiu
 next:
   title: "Document Validation Script"
   url: "/samples/sample2-script"
-
 ---
 
 ## Background

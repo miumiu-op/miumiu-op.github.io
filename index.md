@@ -21,3 +21,4 @@ I believe that effective communication is foundational to success, and I'm eager
 
 - [Sample 1: User Guide](./samples/sample1-guide.html)
 - [Sample 2: Documentation Valiadation Script](./samples/sample2-script.html)
+- [Sample 3: Jira as Work Tracker](./samples/sample3-tracker.html)
