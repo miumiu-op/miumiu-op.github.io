@@ -1,0 +1,25 @@
+---
+---
+
+@import "{{ site.theme }}";
+  
+  header {
+    width: 240px; /* 调整 header 宽度 */
+    float: left;
+    position: fixed;
+    -webkit-font-smoothing: subpixel-antialiased;
+    left: 200px; /* 调整 header 左边边界与屏幕最左侧的距离 */
+  }
+  
+  section {
+    width: 560px; /* 调整 section 宽度 */
+    float: right;
+    padding-bottom: 50px;
+    margin: 8; /* 调整 section 右边边界与屏幕最右侧的距离 */
+    margin-left: 150px; /* 调整 section 左边边界与 header 右边边界的距离 */
+  }
+  
+  
+  
+  
+  

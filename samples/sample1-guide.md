@@ -1,9 +1,9 @@
 ---
-title:  User guide for a background job tool
+title:  User Guide for a Background Job Tool
 layout: sample
 author: miumiu
 next:
-  title: "Document validation script"
+  title: "Document Validation Script"
   url: "/samples/sample2-script"
 
 ---
