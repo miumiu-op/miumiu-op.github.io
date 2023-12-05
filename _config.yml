@@ -11,3 +11,4 @@ collections:
     output: true
     permalink: /samples/:title
 favicon: "/assets/favicon.ico"
+google_analytics: G-D2FL1SEN1Q
