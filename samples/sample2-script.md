@@ -5,6 +5,9 @@ author: miumiu
 previous:
   title: "User Guide for a Background Job Tool"
   url: "/samples/sample1-guide"
+next:
+  title: "Jira as Work Tracker"
+  url: "/samples/sample3-tracker"
 ---
 
 ### Background
