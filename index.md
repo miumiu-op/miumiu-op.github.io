@@ -19,6 +19,7 @@ I believe that effective communication is foundational to success, and I'm eager
 
 ## Writing Portfolio
 
-- [Sample 1: User Guide](./samples/sample1-guide.html)
-- [Sample 2: Documentation Valiadation Script](./samples/sample2-script.html)
-- [Sample 3: Jira as Work Tracker](./samples/sample3-tracker.html)
+- [Sample 1: User Guide](./samples/sample1-guide.html) - This marks my inaugural endeavor to independently craft comprehensive documentation from inception. Dive into my journey as a newcomer and witness the completion of this mission.
+- [Sample 2: Documentation Valiadation Script](./samples/sample2-script.html) - Explore my foray into leveraging programs to streamline our processes, enriching our work with the assistance of chatGPT.
+- [Sample 3: Jira as Work Tracker](./samples/sample3-tracker.html) - Beyond writing, collaboration stands as a pivotal aspect of our work. I harnessed Jira to elevate communication efficiency and systematically log essential details.
+
