@@ -1,7 +1,7 @@
 ---
 title:  Jira as Work Tracker
 layout: sample
-author: miumiu
+author: Miaomiao
 previous:
   title: "Document Validation Script"
   url: "/samples/sample2-script"
