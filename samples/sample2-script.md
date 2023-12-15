@@ -1,7 +1,7 @@
 ---
 title:  Document Validation Script
 layout: sample
-author: miumiu
+author: Miaomiao
 previous:
   title: "User Guide for a Background Job Tool"
   url: "/samples/sample1-guide"
