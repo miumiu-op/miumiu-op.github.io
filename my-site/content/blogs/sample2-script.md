@@ -1,37 +1,31 @@
 ---
-title:  Document Validation Script
-layout: sample
-author: Miaomiao
-previous:
-  title: "User Guide for a Background Job Tool"
-  url: "/samples/sample1-guide"
-next:
-  title: "Jira as Work Tracker"
-  url: "/samples/sample3-tracker"
+title:  "Python Script for Writers"
+date: 2023-12-25T22:52:00+08:00
+draft: false
+author: "Miaomiao"
+tags:
+  - Python script
+  - Sample
 ---
 
-### Background
+This article is about how I've crafted Python scripts as part of a meticulous document migration effort.
+
 As part of a comprehensive document migration initiative, I've developed a suite of Python scripts tailored to ensure the seamless transition of documentation from an older system to a new platform. The primary goal is to perform meticulous syntax checks and modifications to prevent errors and maintain document integrity in the new environment.
 
-### Script Descriptions
+## Script Descriptions
 
 The script comprises three components, each addressing the three most prevalent challenges encountered during documentation migration:
 
-1. **Tag Checker:**
-   - *Purpose:* Validates the structure of HTML or XML-like files, ensuring correct pairing of opening and closing tags.
-   - *Key Features:* Error reporting with detailed messages, aiding in the identification of formatting issues.
+| Tool Name              | Purpose                                                                              | Key Features                                                                                           |
+|------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Tag Checker            | Validates the structure of HTML or XML-like files, ensuring correct tag pairing.     |  Error reporting with detailed messages to aid in identifying formatting issues.                    |
+| Quote Checker          | Analyzes text files to verify the proper pairing of single and double quotation marks.|  Detection of unclosed or mismatched quotes, accompanied by error reports indicating line numbers and positions. |
+| Variable Usage Checker | Ensures the correct usage of variables in code files, focusing on imports and definitions. |  Identifies variables following a specific pattern, validates imports, and checks variable definitions. |
 
-2. **Quote Checker:**
-   - *Purpose:* Analyzes text files to verify the proper pairing of single and double quotation marks.
-   - *Key Features:* Detection of unclosed or mismatched quotes, accompanied by error reports indicating line numbers and positions.
-
-3. **Variable Usage Checker:**
-   - *Purpose:* Ensures the correct usage of variables in code files, focusing on imports and definitions.
-   - *Key Features:* Identifies variables following a specific pattern, validates imports, and checks variable definitions.
 
 These scripts reflect my dedication to ensuring the accuracy and consistency of documentation, aligning with the best practices of the new document management system. Their collective usage guarantees a smooth and error-free transition, reinforcing the reliability of the migrated documentation.
 
-### Code Sample
+## Code Sample
 
 <details>
   <summary>Expand/Collapse</summary>

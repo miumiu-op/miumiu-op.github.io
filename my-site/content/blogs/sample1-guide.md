@@ -1,25 +1,26 @@
 ---
-title:  User Guide for a Background Job Tool
-layout: sample
-author: Miaomiao
-next:
-  title: "Document Validation Script"
-  url: "/samples/sample2-script"
+title:  "User Guide for Complex Product"
+date: 2023-12-25T22:53:00+08:00
+draft: false
+author: "Miaomiao"
+tags:
+  - User guide
+  - Sample
 ---
 
-## Background
+This article delves into my process of writing a user guide for a complext product.
 
-This documentation revolves around two tools designed for scheduling and managing background jobs within a Human Resource solution. The focus of this documentation is to provide comprehensive guidance for users engaging with these tools, catering to both provisioning and administrative environments.
+I was assigned to write a guide that aims to introduce two tools designed for scheduling and managing background jobs within a Human Resource solution. The focus of this documentation is to provide comprehensive guidance for users engaging with these tools, catering to both provisioning and administrative environments.
 
 ## Writing Approach
 
 While composing the user guide, my writing approach is primarily focused on:
 
-- User-Centricity: Personally using the tool to ensure document content aligns with real users' needs and expectations.
+**User-Centricity**: Personally using the tool to ensure document content aligns with real users' needs and expectations.
 
-- Systematic Coverage: Collaborating with the product manager and customer support to understand features and functionalities from an overall perspective ensures comprehensive documentation.
+**Systematic Coverage**: Collaborating with the product manager and customer support to understand features and functionalities from an overall perspective ensures comprehensive documentation.
 
-- Clarity: Utilizing clear and concise language, complemented by visuals and examples for user-friendly comprehension.
+**Clarity**: Utilizing clear and concise language, complemented by visuals and examples for user-friendly comprehension.
 
 ## Challenges Encountered and Solutions
 

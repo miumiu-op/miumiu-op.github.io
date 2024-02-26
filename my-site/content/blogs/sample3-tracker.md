@@ -1,11 +1,15 @@
 ---
-title:  Jira as Work Tracker
-layout: sample
-author: Miaomiao
-previous:
-  title: "Document Validation Script"
-  url: "/samples/sample2-script"
+title:  "Jira as Work Tracker"
+date: 2023-12-25T22:55:00+08:00
+draft: false
+author: "Miaomiao"
+tags:
+  - Jira
+  - Workflows
+  - Sample
 ---
+
+This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.
 
 In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost transparency, I introduced a system using Jira as our work tracker. This innovative approach has significantly streamlined our workflow, addressing various challenges encountered during the process.
 
@@ -13,17 +17,17 @@ In the fast-paced realm of technical writing, effective collaboration with diver
 
 During my work, I encountered several challenges in collaborating with stakeholders as follow:
 
-- Frequent Status Inquiries
-   Stakeholders, including product managers, developers, and support teams, often sought updates on document progress, including details such as links to documents in different environments and release status. This constant exchange of information created inefficiencies and consumed valuable time.
+#### Frequent Status Inquiries
+Stakeholders, including product managers, developers, and support teams, often sought updates on document progress, including details such as links to documents in different environments and release status. This constant exchange of information created inefficiencies and consumed valuable time.
 
-- Inconsistent Input
-   Stakeholders provided input that underwent subsequent changes, introducing confusion and leading to delayed responses on the writer's end.
+#### Inconsistent Input
+Stakeholders provided input that underwent subsequent changes, introducing confusion and leading to delayed responses on the writer's end.
 
-- Post-Tracking Issues
-   Tracing back the origin of specific pieces of information became challenging after the documentation was completed, contributing to potential confusion and misunderstandings.
+#### Post-Tracking Issues
+Tracing back the origin of specific pieces of information became challenging after the documentation was completed, contributing to potential confusion and misunderstandings.
 
-- Unclear Release Signals
-   Ambiguity surrounding when to publish completed content caused delays and uncertainty in the release process.
+#### Unclear Release Signals
+Ambiguity surrounding when to publish completed content caused delays and uncertainty in the release process.
 
 
 ## Solution

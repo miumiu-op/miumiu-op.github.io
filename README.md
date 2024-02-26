@@ -1,1 +1,0 @@
-This is a repo for my personal website. I use Jekyll and use the GitHub page theme "Minimal", without much customiaztion.
