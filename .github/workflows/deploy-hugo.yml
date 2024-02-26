@@ -45,6 +45,8 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Enter Hugo site directory
+        run: cd my-site
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -59,7 +61,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
