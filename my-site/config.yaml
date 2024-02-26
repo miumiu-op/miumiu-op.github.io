@@ -1,4 +1,4 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://miumiu-op.github.io"
 languageCode: "en-us"
 title: "Follow Miaomiao"
 theme: hugo-profile
@@ -15,7 +15,7 @@ outputs:
 Paginate: 3
 enableRobotsTXT: true
 # disqusShortname: your-disqus-shortname
-# googleAnalytics: G-MEASUREMENT_ID
+google_analytics: "G-D2FL1SEN1Q"
 
 markup:
   goldmark:
@@ -259,6 +259,13 @@ params:
   #         - icon: fab fa-twitter
   #           url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
 
+  footer:
+    recentPosts:
+      path: "blogs"
+      count: 3
+      title: Recent Posts
+      enable: true
+      disableFeaturedImage: false
 
   # List pages like blogs and posts
   listPages:
