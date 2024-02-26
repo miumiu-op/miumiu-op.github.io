@@ -2,6 +2,7 @@ baseURL: "https://miumiu-op.github.io"
 languageCode: "en-us"
 title: "Follow Miaomiao"
 theme: hugo-profile
+favicon: "/static/favicon.ico"
 
 outputs:
   home:
