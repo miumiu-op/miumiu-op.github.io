@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/favicon.ico type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:title" content="Jira as Work Tracker" />
+<meta property="og:description" content="This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.
+In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost transparency, I introduced a system using Jira as our work tracker. This innovative approach has significantly streamlined our workflow, addressing various challenges encountered during the process.
+Challenges During my work, I encountered several challenges in collaborating with stakeholders as follow:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://miumiu-op.github.io/blogs/sample3-tracker/" /><meta property="article:section" content="blogs" />
+<meta property="article:published_time" content="2023-12-25T22:55:00+08:00" />
+<meta property="article:modified_time" content="2023-12-25T22:55:00+08:00" /><meta property="og:site_name" content="Follow Miaomiao" />
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Jira as Work Tracker"/>
+<meta name="twitter:description" content="This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.
+In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost transparency, I introduced a system using Jira as our work tracker. This innovative approach has significantly streamlined our workflow, addressing various challenges encountered during the process.
+Challenges During my work, I encountered several challenges in collaborating with stakeholders as follow:"/>
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+
+
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+  <title>
+Jira as Work Tracker | Follow Miaomiao
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;        
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/favicon.ico" width="30" height="30"
+                    class="d-inline-block align-top">
+                Follow Miaomiao
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#achievements"
+                            aria-label="achievements">
+                            Achievements
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Jira as Work Tracker</h1>
+            <div class="text-center">
+              Miaomiao 
+              <small>|</small>
+              Dec 25, 2023
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.</p>
+<p>In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost transparency, I introduced a system using Jira as our work tracker. This innovative approach has significantly streamlined our workflow, addressing various challenges encountered during the process.</p>
+<h2 id="challenges">Challenges</h2>
+<p>During my work, I encountered several challenges in collaborating with stakeholders as follow:</p>
+<h4 id="frequent-status-inquiries">Frequent Status Inquiries</h4>
+<p>Stakeholders, including product managers, developers, and support teams, often sought updates on document progress, including details such as links to documents in different environments and release status. This constant exchange of information created inefficiencies and consumed valuable time.</p>
+<h4 id="inconsistent-input">Inconsistent Input</h4>
+<p>Stakeholders provided input that underwent subsequent changes, introducing confusion and leading to delayed responses on the writer&rsquo;s end.</p>
+<h4 id="post-tracking-issues">Post-Tracking Issues</h4>
+<p>Tracing back the origin of specific pieces of information became challenging after the documentation was completed, contributing to potential confusion and misunderstandings.</p>
+<h4 id="unclear-release-signals">Unclear Release Signals</h4>
+<p>Ambiguity surrounding when to publish completed content caused delays and uncertainty in the release process.</p>
+<h2 id="solution">Solution</h2>
+<p>To address these challenges, I organized a meeting with stakeholders to present the benefits of using Jira. During this session, I provided detailed instructions on how to use Jira and successfully garnered alignment for adopting this approach.</p>
+<p>The ticket template consists of the following information:</p>
+<ul>
+<li>Product/project name</li>
+<li>Release version</li>
+<li>Release date</li>
+<li>Release signal by product owner</li>
+<li>Conversation around the doc if any</li>
+<li>Doc tracker fields as follows:</li>
+</ul>
+<pre tabindex="0"><code>| Document Title | Input** | Status** | Doc Link** |  
+</code></pre><p>**Input refers to the sources that SMEs provide to the writer, such as Git PR, SNS conversation, Jira ticket, etc.</p>
+<p>**There are six statuses: waiting for input, draft, in tech review, in language review, ready for release, and released.</p>
+<p>**Use preview links when the document is ready for release and replace them with production links when the document is released.</p>
+<h2 id="results">Results</h2>
+<p>Following the implementation, I conducted a retrospective to assess the impact of incorporating Jira into our documentation processes:</p>
+<table>
+<thead>
+<tr>
+<th>Before (Without Jira)</th>
+<th>After (With Jira)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholders sought updates, causing inefficiencies.</td>
+<td>Transparent progress tracking in Jira reduces inquiries.</td>
+</tr>
+<tr>
+<td>Inconsistent stakeholder input led to confusion.</td>
+<td>Jira formalizes input processes, minimizing confusion.</td>
+</tr>
+<tr>
+<td>Tracing back information origin was challenging.</td>
+<td>Jira serves as a record-keeping tool, aiding issue resolution.</td>
+</tr>
+<tr>
+<td>Ambiguity about when to publish content caused delays.</td>
+<td>Jira formalizes the sign-off process, providing clarity.</td>
+</tr>
+</tbody>
+</table>
+<p>In conclusion, adopting Jira as a work tracker has significantly enhanced our collaborative processes, bringing transparency, efficiency, and clarity to our documentation workflow. This structured approach has proven to be a valuable asset in our efforts to deliver timely and accurate technical content.</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#challenges">Challenges</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#results">Results</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://miumiu-op.github.io/tags/jira" target="_blank">Jira</a></li>
+              
+              <li class="list-inline-item"><a href="https://miumiu-op.github.io/tags/workflows" target="_blank">Workflows</a></li>
+              
+              <li class="list-inline-item"><a href="https://miumiu-op.github.io/tags/sample" target="_blank">Sample</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Jira%20as%20Work%20Tracker&url=https%3a%2f%2fmiumiu-op.github.io%2fblogs%2fsample3-tracker%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Jira%20as%20Work%20Tracker: https%3a%2f%2fmiumiu-op.github.io%2fblogs%2fsample3-tracker%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Jira%20as%20Work%20Tracker&amp;body=Check%20out%20this%20site https%3a%2f%2fmiumiu-op.github.io%2fblogs%2fsample3-tracker%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+ 
+<div class="container py-3" id="recent-posts">
+    
+    
+    <div class="h3 text-center text-secondary py-3">
+        Recent Posts
+    </div>
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/sample3-tracker/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Jira as Work Tracker">Jira as Work Tracker</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p>This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.
+In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost …</p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Dec 25, 2023</span>
+                    <a href="/blogs/sample3-tracker/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/sample1-guide/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="User Guide for Complex Product">User Guide for Complex …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p>This article delves into my process of writing a user guide for a complext product.
+I was assigned to write a guide that aims to introduce two tools designed for scheduling and managing background jobs within a Human Resource solution. The focus of this documentation is to provide comprehensive …</p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Dec 25, 2023</span>
+                    <a href="/blogs/sample1-guide/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/sample2-script/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Python Script for Writers">Python Script for Writers</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p>This article is about how I&rsquo;ve crafted Python scripts as part of a meticulous document migration effort.
+As part of a comprehensive document migration initiative, I&rsquo;ve developed a suite of Python scripts tailored to ensure the seamless transition of documentation from an older system to …</p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Dec 25, 2023</span>
+                    <a href="/blogs/sample2-script/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            <div class="pb-2">
+                <a href="https://miumiu-op.github.io/" title="Follow Miaomiao">
+                    <img alt="Footer logo" src="/favicon.ico"
+                        height="40px" width="40px">
+                </a>
+            </div>
+            &copy; 2024  All rights reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>
