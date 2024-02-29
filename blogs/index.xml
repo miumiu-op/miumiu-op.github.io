@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Follow Miaomiao</title>
-    <link>https://miumiu-op.github.io/blogs/</link>
+    <link>http://localhost:1313/blogs/</link>
     <description>Recent content in Blogs on Follow Miaomiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Dec 2023 22:55:00 +0800</lastBuildDate>
-    <atom:link href="https://miumiu-op.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jira as Work Tracker</title>
-      <link>https://miumiu-op.github.io/blogs/sample3-tracker/</link>
+      <link>http://localhost:1313/blogs/sample3-tracker/</link>
       <pubDate>Mon, 25 Dec 2023 22:55:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/blogs/sample3-tracker/</guid>
+      <guid>http://localhost:1313/blogs/sample3-tracker/</guid>
       <description>This article outlines how I implemented a Jira-based work tracking system in technical writing workflows.&#xA;In the fast-paced realm of technical writing, effective collaboration with diverse stakeholders is vital for delivering high-quality documentation. To optimize our communication and boost transparency, I introduced a system using Jira as our work tracker. This innovative approach has significantly streamlined our workflow, addressing various challenges encountered during the process.&#xA;Challenges During my work, I encountered several challenges in collaborating with stakeholders as follow:</description>
     </item>
     <item>
       <title>User Guide for Complex Product</title>
-      <link>https://miumiu-op.github.io/blogs/sample1-guide/</link>
+      <link>http://localhost:1313/blogs/sample1-guide/</link>
       <pubDate>Mon, 25 Dec 2023 22:53:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/blogs/sample1-guide/</guid>
+      <guid>http://localhost:1313/blogs/sample1-guide/</guid>
       <description>This article delves into my process of writing a user guide for a complext product.&#xA;I was assigned to write a guide that aims to introduce two tools designed for scheduling and managing background jobs within a Human Resource solution. The focus of this documentation is to provide comprehensive guidance for users engaging with these tools, catering to both provisioning and administrative environments.&#xA;Writing Approach While composing the user guide, my writing approach is primarily focused on:</description>
     </item>
     <item>
       <title>Python Script for Writers</title>
-      <link>https://miumiu-op.github.io/blogs/sample2-script/</link>
+      <link>http://localhost:1313/blogs/sample2-script/</link>
       <pubDate>Mon, 25 Dec 2023 22:52:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/blogs/sample2-script/</guid>
+      <guid>http://localhost:1313/blogs/sample2-script/</guid>
       <description>This article is about how I&amp;rsquo;ve crafted Python scripts as part of a meticulous document migration effort.&#xA;As part of a comprehensive document migration initiative, I&amp;rsquo;ve developed a suite of Python scripts tailored to ensure the seamless transition of documentation from an older system to a new platform. The primary goal is to perform meticulous syntax checks and modifications to prevent errors and maintain document integrity in the new environment.</description>
     </item>
   </channel>
