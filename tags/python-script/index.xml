@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python Script on Follow Miaomiao</title>
-    <link>https://miumiu-op.github.io/tags/python-script/</link>
+    <link>http://localhost:1313/tags/python-script/</link>
     <description>Recent content in Python Script on Follow Miaomiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Dec 2023 22:52:00 +0800</lastBuildDate>
-    <atom:link href="https://miumiu-op.github.io/tags/python-script/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/python-script/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python Script for Writers</title>
-      <link>https://miumiu-op.github.io/blogs/sample2-script/</link>
+      <link>http://localhost:1313/blogs/sample2-script/</link>
       <pubDate>Mon, 25 Dec 2023 22:52:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/blogs/sample2-script/</guid>
+      <guid>http://localhost:1313/blogs/sample2-script/</guid>
       <description>This article is about how I&amp;rsquo;ve crafted Python scripts as part of a meticulous document migration effort.&#xA;As part of a comprehensive document migration initiative, I&amp;rsquo;ve developed a suite of Python scripts tailored to ensure the seamless transition of documentation from an older system to a new platform. The primary goal is to perform meticulous syntax checks and modifications to prevent errors and maintain document integrity in the new environment.</description>
     </item>
   </channel>

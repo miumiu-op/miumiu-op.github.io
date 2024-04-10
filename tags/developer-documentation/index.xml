@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developer Documentation on Follow Miaomiao</title>
+    <link>http://localhost:1313/tags/developer-documentation/</link>
+    <description>Recent content in Developer Documentation on Follow Miaomiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Apr 2024 19:03:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/developer-documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Developer Documentation</title>
+      <link>http://localhost:1313/portfolio/developer/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/portfolio/developer/</guid>
+      <description>Tools used: Markdown, VS Code, Oxygen&#xA;This project involved updating a documentation set for developers who want to develop interactive online classroom apps using the provided SDK. The documentation set consists of release notes, quickstart guides, feature guides, API reference, etc.&#xA;In addition to updating the documentation for new releases, I enriched the content of 50 topics by integrating feedback from both engineers and customer support. This round of content enhancement significantly reduced user-reported issues and tickets, thereby improving the overall user experience.</description>
+    </item>
+  </channel>
+</rss>

@@ -2,45 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Follow Miaomiao</title>
-    <link>https://miumiu-op.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Follow Miaomiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Dec 2023 22:55:00 +0800</lastBuildDate>
-    <atom:link href="https://miumiu-op.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Apr 2024 19:03:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Admin Guide</title>
+      <link>http://localhost:1313/tags/admin-guide/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/admin-guide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>API Documentation</title>
+      <link>http://localhost:1313/tags/api-documentation/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/api-documentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer Documentation</title>
+      <link>http://localhost:1313/tags/developer-documentation/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/developer-documentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DITA</title>
+      <link>http://localhost:1313/tags/dita/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/dita/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ERP</title>
+      <link>http://localhost:1313/tags/erp/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/erp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/tags/markdown/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing Samples</title>
+      <link>http://localhost:1313/tags/writing-samples/</link>
+      <pubDate>Wed, 10 Apr 2024 19:03:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/writing-samples/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Jira</title>
-      <link>https://miumiu-op.github.io/tags/jira/</link>
+      <link>http://localhost:1313/tags/jira/</link>
       <pubDate>Mon, 25 Dec 2023 22:55:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/tags/jira/</guid>
+      <guid>http://localhost:1313/tags/jira/</guid>
       <description></description>
     </item>
     <item>
       <title>Sample</title>
-      <link>https://miumiu-op.github.io/tags/sample/</link>
+      <link>http://localhost:1313/tags/sample/</link>
       <pubDate>Mon, 25 Dec 2023 22:55:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/tags/sample/</guid>
+      <guid>http://localhost:1313/tags/sample/</guid>
       <description></description>
     </item>
     <item>
       <title>Workflows</title>
-      <link>https://miumiu-op.github.io/tags/workflows/</link>
+      <link>http://localhost:1313/tags/workflows/</link>
       <pubDate>Mon, 25 Dec 2023 22:55:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/tags/workflows/</guid>
+      <guid>http://localhost:1313/tags/workflows/</guid>
       <description></description>
     </item>
     <item>
       <title>User Guide</title>
-      <link>https://miumiu-op.github.io/tags/user-guide/</link>
+      <link>http://localhost:1313/tags/user-guide/</link>
       <pubDate>Mon, 25 Dec 2023 22:53:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/tags/user-guide/</guid>
+      <guid>http://localhost:1313/tags/user-guide/</guid>
       <description></description>
     </item>
     <item>
       <title>Python Script</title>
-      <link>https://miumiu-op.github.io/tags/python-script/</link>
+      <link>http://localhost:1313/tags/python-script/</link>
       <pubDate>Mon, 25 Dec 2023 22:52:00 +0800</pubDate>
-      <guid>https://miumiu-op.github.io/tags/python-script/</guid>
+      <guid>http://localhost:1313/tags/python-script/</guid>
       <description></description>
     </item>
   </channel>
