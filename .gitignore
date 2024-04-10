@@ -1,2 +1,5 @@
+.gitignore
 .DS_Store
 .hugo_build.lock
+/static/.DS_Store
+/static/images/.DS_Store
