@@ -1,0 +1,10 @@
+- id: read
+  translation: "阅读"
+- id: toc
+  translation: "目录"
+- id: copyright
+  translation: "版权所有"
+- id: pageNotFound
+  translation: "页面未找到"
+- id: emailText
+  translation: "查看此网站"
