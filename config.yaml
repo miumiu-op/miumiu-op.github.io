@@ -12,12 +12,159 @@ languages:
     contentDir: "content/zh"
     weight: 2
     title: "关注 Miaomiao" # 中文版的标题
+    menu:
+      main:
+        - identifier: blog
+          name: 博客
+          title: 博文
+          url: /blogs
+          weight: 2
+        # - identifier: gallery
+        #   name: 图集
+        #   title: 博文
+        #   url: /gallery
+        #   weight: 2
+        #Dropdown menu
+        - identifier: dropdown
+          title: 示例下拉菜单
+          name: 作品集
+          weight: 1
+        - identifier: dropdown1
+          title: 示例下拉菜单 1
+          name: 软件文档
+          url: "/portfolio/software/"
+          parent: dropdown
+          weight: 1
+        - identifier: dropdown2
+          title: 示例下拉菜单 2
+          name: 开发者文档
+          url: "/portfolio/developer/"
+          parent: dropdown
+          weight: 2
+    params:
+      title: "关注 Miaomiao"
+      description: "Miaomiao Pan 的个人站点"
+      navbar:
+        brandName: "关注 Miaomiao"
+      hero:
+        intro: "你好，我是"
+        title: "Miaomiao"
+        subtitle: "人生短暂，但工作可能让它更长"
+        content: "我不太喜欢标签，但如果需要，我会说自己是技术写作者、INFJ，以及 KPop 爱好者。"
+        button:
+          name: "联系我"
+      about:
+        title: "关于我"
+        content: |-
+          你好，我是 Miaomiao Pan，你也可以叫我 Miumiu——这是朋友们常用的称呼。
+
+          过去几年，我深耕技术写作领域，专注于面向用户的内容创作，包括技术文档的撰写与翻译、UI 文案，以及视频脚本。
+
+          我尤其关注 AI 驱动的文档工程与自动化工具在流程优化中的应用，并成功落地相关实践，提升效率与生产力。
+        skills:
+          title: "以下是我掌握的一些技能："
+          items:
+            - "AI 与自动化：提示工程、Cursor、Windsurf、n8n、Python"
+            - "内容技术栈：DITA（Oxygen、IXIA CCMS）、Markdown、XML/HTML、API 文档"
+            - "协作与设计：Git、Jira、VS Code、Figma、Snagit"
+      experience:
+        items:
+          - job: "技术写作者"
+            company: "Cobo"
+            date: "2024.06 - 至今"
+            content: |
+              在 Cobo，我负责 Custody/WaaS 业务线的文档工作，确保全覆盖并快速迭代。主要贡献包括：
+
+              - 主导交付 13 万字的双语《数字资产安全手册》。
+              - 借助 AI 与数据分析提升开发者体验与文档效率。
+              - 开发自动化机器人（Slack、n8n）以优化用户反馈与内容流程。
+          - job: "技术写作者"
+            company: "Agora"
+            date: "2022.05 - 2023.07"
+            content: |
+              在 Agora.io（即声网）期间，我负责双语发布说明与 API 文档，并优化协作流程。除此之外，我还：
+
+              - 使用 ChatGPT 编写 Python 自动化脚本，用于语法检查、样式更新与文件生成。
+              - 引入 Jira 规范协作流程，提升任务跟踪效率。
+              - 优化 API 文档工具链与 XML 转 JSON 转换逻辑。
+          - job: "用户帮助开发者"
+            company: "SAP"
+            date: "2019.11 - 2022.05"
+            content: |
+              在 SAP 任职期间，我与产品经理和工程师协作，产出面向客户的内容。除此之外，我还：
+
+              - 编写跨产品功能的集成指南。
+              - 协助本地团队引入 Jira，提高团队效率。
+              - 使用 Snagit 制作演示视频，降低用户学习成本。
+          - job: "技术写作者"
+            company: "KUKA Robotics"
+            date: "2019.04 - 2019.11"
+            content: |
+              与产品经理和工程师协作交付基于 DITA 的机器人操作系统文档，负责翻译供应商管理与质量审查，并完成机器人操作系统相关培训。
+      education:
+        items:
+          - title: "翻译硕士"
+            school:
+              name: "上海外国语大学"
+            date: "2016 - 2019"
+            content: "英汉翻译"
+          - title: "工商管理学士"
+            school:
+              name: "浙江工商大学"
+            date: "2012 - 2016"
+            content: "工商管理"
+      achievements:
+        items:
+          - title: "行业贡献"
+            content: "Infomagic（TC 互联）技术传播社区讲师 & 技术传播专业委员会成员。"
+          - title: "语言证书"
+            content: "雅思 7.5，CET-6（564），CET-4（596），全国大学生英语竞赛一等奖。"
+          - title: "在线学习证书"
+            content: "完成多项在线课程，包括 Kaggle SQL 入门、EA 软件工程虚拟体验项目、Postman API Fundamentals Student Expert 等。"
+      footer:
+        recentPosts:
+          title: "最新文章"
+      terms:
+        read: "阅读"
+        toc: "目录"
+        copyright: "版权所有"
+        pageNotFound: "页面未找到"
+        emailText: "查看此网站"
   en:
     languageName: "English"
     languageCode: "en-us"
     contentDir: "content/en"
     weight: 1
     title: "Follow Miaomiao" # 英文版的标题
+    menu:
+      main:
+        - identifier: blog
+          name: Blog
+          title: Blog posts
+          url: /blogs
+          weight: 2
+        # - identifier: gallery
+        #   name: Gallery
+        #   title: Blog posts
+        #   url: /gallery
+        #   weight: 2
+        #Dropdown menu
+        - identifier: dropdown
+          title: Example dropdown menu
+          name: Portfolio
+          weight: 1
+        - identifier: dropdown1
+          title: example dropdown 1
+          name: Software Documentation
+          url: "/portfolio/software/"
+          parent: dropdown
+          weight: 1
+        - identifier: dropdown2
+          title: example dropdown 2
+          name: Developer Documentation
+          url: "/portfolio/developer/"
+          parent: dropdown
+          weight: 2
 
 outputs:
   home:
@@ -37,36 +184,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
-Menus:
-  main:
-    - identifier: blog
-      name: Blog
-      title: Blog posts
-      url: /blogs
-      weight: 2
-    # - identifier: gallery
-    #   name: Gallery
-    #   title: Blog posts
-    #   url: /gallery
-    #   weight: 2
-    #Dropdown menu
-    - identifier: dropdown
-      title: Example dropdown menu
-      name: Portfolio
-      weight: 1
-    - identifier: dropdown1
-      title: example dropdown 1
-      name: Software Documentation
-      url: "/portfolio/software/"
-      parent: dropdown
-      weight: 1
-    - identifier: dropdown2
-      title: example dropdown 2
-      name: Developer Documentation
-      url: "/portfolio/developer/"
-      parent: dropdown
-      weight: 2
 
 params:
   title: "Follow Miaomiao"
