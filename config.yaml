@@ -153,60 +153,69 @@ params:
     content: |-
       Hello, I’m Miaomiao Pan, but you can call me Miumiu—it’s what my friends usually go with. 
       
-      Over the past 4 years, I've immersed myself in the world of technical writing, focusing on user-oriented content creation. My experience includes writing and translating technical documents, crafting UI text, and scripting videos. 
+      Over the past several years, I've immersed myself in the world of technical writing, focusing on user-oriented content creation. My experience includes writing and translating technical documents, crafting UI text, and scripting videos.
 
-      Also I'm passionate about leveraging technology tools and implementing standard workflows to enhance efficiency in my work, and I've successfully implemented such initiatives in the past.
+      I'm particularly passionate about AI-driven documentation engineering and leveraging automation tools to enhance workflow efficiency. I've successfully implemented such initiatives to streamline processes and improve productivity.
     skills:
       enable: true
-      title: "Here are a few skills I've been mastered at work:"
+      title: "Here are a few skills I've mastered:"
       items:
-        - "XML (Markdown, HTML)"
-        - "DITA editors (Oxygen)"
-        - "API doc generation tools (Doxygen, TypeDoc)"
-        - "Figma (for UI text)"
-        - "Snagit (for making videos)"
-        - "Python"
-        - "Git"
-        - "ChatGPT"
+        - "AI & Automation: Prompt Engineering, Cursor, Windsurf, n8n, Python"
+        - "Content Tech Stack: DITA (Oxygen, IXIA CCMS), Markdown, XML/HTML, API Docs"
+        - "Collaboration & Design: Git, Jira, VS Code, Figma, Snagit"
 
   # Experience
   experience:
     enable: true
     # title: "Custom Name"
     items:
+      - job: "Technical Writer"
+        company: "Cobo"
+        companyUrl: "https://www.cobo.com"
+        date: "Jun 2024 - Present"
+        info:
+          enable: true
+        content: |
+          At Cobo, I led the documentation for the Custody/WaaS business line, ensuring full coverage and rapid iteration. Key contributions include:
+
+          - Orchestrated the delivery of a 130,000-word bilingual Digital Asset Security Manual.
+          - Leveraged AI and data analysis to optimize developer experience and documentation efficiency.
+          - Developed automation bots (Slack, n8n) to streamline user feedback and content processes.
 
       - job: "Technical Writer"
         company: "Agora"
-        companyUrl: "https://example.com"
+        companyUrl: "https://www.agora.io"
         date: "May 2022 - Jul 2023"
         info:
           enable: true
         content: |
-          At Agora.io (aka Shengwang), I collaborated with product managers, developers, and technical support to create various technical documents. Besides, I also:
+          At Agora.io (aka Shengwang), I managed bilingual release notes and API documentation while optimizing workflows. Besides, I also:
 
-          - Implemented ChatGPT for automating tasks such as grammar checking, style updates, and folder/ file creation based on configurations.
-          - Led the streamlining of the collaboration process between technical writers and developers by introducing Jira.
+          - Developed Python automation scripts using ChatGPT for grammar checks, style updates, and file creation.
+          - Standardized collaboration processes by introducing Jira for task tracking.
+          - Optimized the API documentation toolchain and XML-to-JSON conversion logic.
 
       - job: "User Assistance Developer"
         company: "SAP"
-        companyUrl: "https://example.com"
+        companyUrl: "https://www.sap.com"
         date: "Nov 2019 - May 2022"
         info:
           enable: true
         content: |
-          At SAP, I worked as a user assistance developer (almost same as technical writer), I collaborated with product management, engineers, and technical support, to generate a diverse range of customer-facing content. Besides, I also:
+          At SAP, I worked as a user assistance developer, collaborating with product management and engineers to generate customer-facing content. Besides, I also:
 
-          - Actively engaged with customers who provided feedback via external channels and communicated directly with internal stakeholders.
-          - Assisted the local User Assistance (UA) team in transitioning to Atlassian Jira for work tracking. 
+          - Authored integration guides for complex cross-product features.
+          - Assisted the local team in integrating Jira, boosting team efficiency.
+          - Produced demonstration videos using Snagit to reduce user learning costs.
 
       - job: "Technical Writer"
         company: "KUKA Robotics"
-        companyUrl: "https://example.com"
+        companyUrl: "https://www.kuka.com"
         date: "Apr 2019 - Nov 2019"
         info:
           enable: true
         content:
-          "I Collaborated with product managers and engineers to produce user guides using an XML-based CMS. I Successfully completed comprehensive training in robot OS fundamentals and applied this knowledge to deliver a new and user-friendly guide for the robot OS application package." 
+          "Collaborated with product managers and engineers to deliver DITA-based documentation for robot operating systems. I managed translation vendors, conducted quality audits, and completed comprehensive training in robot OS fundamentals."
 
 
   # Education
@@ -218,13 +227,13 @@ params:
       - title: "Master of Translation"
         school:
           name: "Shanghai International Studies University in Shanghai, China"
-          url: "https://example.org"
+          url: "http://www.shisu.edu.cn/"
         date: "2016 - 2019"
         content: "English-Chinese Translation"
       - title: "Bachelor of Business Administration"
         school:
           name: "Zhejiang Gongshang University in Hangzhou, China"
-          url: "https://example.org"
+          url: "http://www.zjgsu.edu.cn/"
         date: "2012 - 2016"
         content: "Business Administration"
 
@@ -234,10 +243,10 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - title: Lecturer at Infomagic Academy
-        content: I Delivered an online course for technical writers on "How to Write a Task Topic" for Infomagic Academy (TChulian), the organizer of tcworld China.
+      - title: Industry Contribution
+        content: Infomagic (TC Hulian) Technical Communication Community Instructor & Technical Communication Professional Committee Member.
       - title: Language Certificates
-        content: 564 in CET-6 (national English as a foreign language test in China), 596 in CET-4, and First Prize in National English Competition for College Students (Type C)
+        content: IELTS 7.5, CET-6 (564), CET-4 (596), and First Prize in National English Competition for College Students.
       - title: Online Learning Certificates
         content: I completed multiple online learning programs, including Intro to SQL by Kaggle, Software Engineering Virtual Experience Program by EA, Postman API Fundamentals Student Expert, etc.
 
