@@ -1,4 +1,4 @@
-baseURL: "https://miumiu-op.github.io"
+baseURL: "https://miumiu-op.github.io/"
 title: "Follow Miaomiao"
 theme: hugo-profile
 favicon: "/static/favicon.ico"
