@@ -34,7 +34,7 @@ languages:
           name: 博客
           title: 博文
           url: /zh/blogs
-          weight: 6
+          weight: 10
         # - identifier: gallery
         #   name: 图集
         #   title: 博文
