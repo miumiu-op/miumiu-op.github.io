@@ -30,11 +30,12 @@ languages:
           name: "个人成就"
           url: "/zh/#achievements" # 手动锁定中文路径
           weight: 4
-        - identifier: blog
-          name: 博客
-          title: 博文
-          url: /zh/blogs
-          weight: 10
+        # 博客暂时不对外展示，原文仍保留在 content/zh/blogs
+        # - identifier: blog
+        #   name: 博客
+        #   title: 博文
+        #   url: /zh/blogs
+        #   weight: 10
         # - identifier: gallery
         #   name: 图集
         #   title: 博文
@@ -178,11 +179,12 @@ languages:
     title: "Follow Miaomiao" # 英文版的标题
     menu:
       main:
-        - identifier: blog
-          name: Blog
-          title: Blog posts
-          url: /blogs
-          weight: 2
+        # Blog is hidden for now. Source stays in content/en/blogs.
+        # - identifier: blog
+        #   name: Blog
+        #   title: Blog posts
+        #   url: /blogs
+        #   weight: 2
         # - identifier: gallery
         #   name: Gallery
         #   title: Blog posts
@@ -228,6 +230,14 @@ outputs:
 pagination:
   pagerSize: 3
 enableRobotsTXT: true
+
+# 博客内容先不生成页面，文件仍留在 content/*/blogs
+cascade:
+  - build:
+      render: never
+      list: never
+    _target:
+      path: "{/blogs,/blogs/**}"
 # disqusShortname: your-disqus-shortname
 googleAnalytics: G-D2FL1SEN1Q
 
@@ -442,7 +452,7 @@ params:
       path: "blogs"
       count: 3
       title: Recent Posts
-      enable: true
+      enable: false
       disableFeaturedImage: false
 
   # List pages like blogs and posts
