@@ -4,7 +4,7 @@ date: 2026-10-24T12:00:00+08:00
 draft: false
 author: "Miaomiao"
 weight: 1
-summary: "勾选去过的城市，给明信片盖章，再看自己的旅行人格。"
+summary: "勾选去过的城市，给明信片盖章，测试自己的旅行人格。"
 description: "记录去过的城市，并测一测旅行人格。"
 image: /images/projects/traveller-persona.jpg
 badges:
