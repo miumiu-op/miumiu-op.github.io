@@ -22,10 +22,11 @@ languages:
           name: "工作经验"
           url: "/zh/#experience"   # 手动锁定中文路径
           weight: 2
-        - identifier: education
-          name: "教育背景"
-          url: "/zh/#education"    # 手动锁定中文路径
-          weight: 3
+        # 教育背景暂时不对外展示，内容仍保留在下方配置里
+        # - identifier: education
+        #   name: "教育背景"
+        #   url: "/zh/#education"    # 手动锁定中文路径
+        #   weight: 3
         - identifier: achievements
           name: "个人成就"
           url: "/zh/#achievements" # 手动锁定中文路径
@@ -138,6 +139,7 @@ languages:
             content: |
               与产品经理和工程师协作交付基于 DITA 的机器人操作系统文档，负责翻译供应商管理与质量审查，并完成机器人操作系统相关培训。
       education:
+        enable: false
         title: "教育背景"
         items:
           - title: "翻译硕士"
@@ -416,7 +418,7 @@ params:
 
   # Education
   education:
-    enable: true
+    enable: false
     # title: "Custom Name"
     index: false
     items:
