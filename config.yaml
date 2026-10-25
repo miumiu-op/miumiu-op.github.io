@@ -65,18 +65,18 @@ languages:
           disableProjects: true
           disableContact: true
       hero:
-        intro: "你好，我是"
+        intro: "Hi，我叫"
         title: "Miaomiao"
-        subtitle: "人生短暂，但工作可以让它变漫长"
-        content: "我不太喜欢标签，但如果需要，我会说自己是技术写作者，Vibe Coder，INFJ，以及 KPop 爱好者。"
+        subtitle: "人生苦短，但工作可以让它变漫长"
+        content: "我不太喜欢标签，但非要说的话，我会说自己是技术写作者，Vibe Coder，INFJ，以及 KPop 爱好者。"
         button:
           name: "联系我"
       about:
         title: "关于我"
         content: |-
-          你好，我是 Miaomiao Pan，你也可以叫我 Miumiu——这是朋友们常用的称呼。
+          我叫 Miaomiao Pan，你也可以叫我 Miumiu，朋友们都这么叫我。
 
-          过去几年，我深耕技术写作领域，专注于面向用户的内容创作，包括技术文档的撰写与翻译、产品 UI 文案，以及视频脚本。
+          过去几年，我深耕技术写作领域，专注于面向用户的内容创作，包括技术文档的撰写与翻译、产品 UI 文案，以及其他各种形式的用户支持内容。
 
           我尤其关注 AI 驱动的文档工程与自动化工具在流程优化中的应用，并成功落地相关实践，优化用户体验和提升效率与生产力。
         skills:
@@ -91,7 +91,7 @@ languages:
         items:
           - job: "技术写作者"
             company: "Cobo"
-            date: "2024.06 - 至今"
+            date: "2024.06 - 2026.01"
             content: |
               在 Cobo，我负责 Custody/WaaS 业务线的文档工作，确保全覆盖并快速迭代。主要贡献包括：
 
@@ -157,7 +157,7 @@ languages:
       docsProjects:
         enable: true
         title: "文档项目"
-        subtitle: "技术写作与文档工程相关实践。"
+        subtitle: "技术写作与文档工程相关实践"
       projects:
         enable: true
         title: "编程项目"
@@ -215,7 +215,7 @@ languages:
       docsProjects:
         enable: true
         title: "Documentation Projects"
-        subtitle: "Technical writing and docs engineering work."
+        subtitle: "Technical writing and docs engineering work"
       projects:
         enable: true
         title: "Coding Projects"
@@ -320,10 +320,10 @@ params:
   # Hero
   hero:
     enable: true
-    intro: "Hi, this is"
+    intro: "Hi, I'm"
     title: "Miaomiao"
-    subtitle: "Life is short but work can make it longer"
-    content: "Not a big fan of labels, but if necessary, I'd identify as a technical writer, a Vibe Coder, an INFJ, and a KPop lover."
+    subtitle: "Life is short and hard, but work can make it longer"
+    content: "Not a big fan of labels, but if I have to pick some, I'd say technical writer, Vibe Coder, INFJ, and KPop lover."
     image: /images/me.png
     bottomImage:
       enable: true
@@ -347,9 +347,9 @@ params:
     title: "About Me"
     image: "/images/me.png"
     content: |-
-      Hello, I’m Miaomiao Pan, but you can call me Miumiu—it’s what my friends usually go with. 
-      
-      Over the past several years, I've immersed myself in the world of technical writing, focusing on user-oriented content creation. My experience includes writing and translating technical documents, crafting product UI copy, and scripting videos.
+      I'm Miaomiao Pan — you can also call me Miumiu; that's what my friends call me.
+
+      Over the past several years, I've immersed myself in technical writing, focusing on user-oriented content: writing and translating technical docs, product UI copy, and other forms of user-support content.
 
       I'm particularly passionate about AI-driven documentation engineering and leveraging automation tools to enhance workflow efficiency. I've successfully implemented such initiatives to improve the user experience and boost both efficiency and productivity.
     skills:
@@ -369,7 +369,7 @@ params:
       - job: "Technical Writer"
         company: "Cobo"
         companyUrl: "https://www.cobo.com"
-        date: "Jun 2024 - Present"
+        date: "Jun 2024 - Jan 2026"
         info:
           enable: true
         content: |
@@ -450,7 +450,7 @@ params:
   docsProjects:
     enable: true
     title: "Documentation Projects"
-    subtitle: "Technical writing and docs engineering work."
+    subtitle: "Technical writing and docs engineering work"
 
   projects:
     enable: true

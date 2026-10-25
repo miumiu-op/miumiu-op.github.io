@@ -1,10 +1,10 @@
 ---
-title: "Data-Driven Docs Engineering: Continuous Improvement from Mintlify AI Q&A and Feedback Loops"
+title: "Data-Driven User Feedback Loop"
 date: 2026-02-15T10:00:00+08:00
 draft: false
 author: "Miaomiao"
 weight: 3
-summary: "Using docs-site Q&A bot telemetry, I built a continuous loop of export logs → AI-assisted cleaning and clustering → targeted fixes → impact checks, which improved self-serve rates and developer experience."
+summary: "I built a continuous loop of “export user conversation → AI-assisted cleaning and classifying → targeted fixes → impact evaluation,” which improved self-service rates and developer experience."
 tags:
   - Data-driven
   - Developer experience
@@ -24,22 +24,23 @@ To fix that, I led a continuous improvement loop based on AI Q&A and user feedba
 
 The iteration chain centered on three moves:
 
-1. Collect and clean real questions:  
-   I exported raw conversation logs across sites from the Q&A bot built into Mintlify, the docs stack we used at the time. Facing a large, fragmented set of questions, we used an AI-assisted workflow to clean, cluster, and consolidate keywords, strip noise, and lock onto real pain points quickly.
+#### 1. Collect and clean real questions
+From the Mintlify backend (the docs stack we used at the time), I exported raw conversation logs between the built-in Q&A bot and users. Facing a large, fragmented set of questions, we used an AI-assisted workflow to clean, cluster, and consolidate keywords, strip noise, and lock onto real pain points quickly.
 
-  | Product area | Mentions | Share | Demand type |
-  | :--- | :--- | :--- | :--- |
-  | **MPC wallets** | 211 | 25% | Usage scenarios |
-  | **Risk controls** | 115 | 14% | UI actions |
-  | **Custodial wallets** | 109 | 13% | Usage scenarios |
-  | **Developer console** | 90 | 11% | UI actions |
-  | **Address screening & KYT** | 85 | 10% | Feature scenarios |
+Sample conversation log analysis from one export:
 
-  *Source: clustered sample from one Q&A log export*
+| Product area | Mentions | Share | Demand type |
+| :--- | :--- | :--- | :--- |
+| **MPC wallets** | 211 | 25% | Usage scenarios |
+| **Risk controls** | 115 | 14% | UI actions |
+| **Custodial wallets** | 109 | 13% | Usage scenarios |
+| **Developer console** | 90 | 11% | UI actions |
+| **Address screening & KYT** | 85 | 10% | Feature scenarios |
 
-2. Attribute across dimensions:  
+#### 2. Attribute across dimensions
    After cleaning, I broke high-frequency questions down further: missing content, weak AI retrieval, or a product/API design issue. That kept us from changing the wrong thing.
-3. Fix with intent and check the effect:  
+
+#### 3. Fix with intent and check the effect
    For each pain point, we shipped a targeted fix such as new explainer docs, clearer UI copy, or a fuller API error-code table, then reviewed the next cycle for higher AI answer success and fewer unanswered questions.
 
 ---
@@ -48,11 +49,11 @@ The iteration chain centered on three moves:
 
 Regular review of several months of AI Q&A logs led to concrete changes:
 
-### 1. Rebuild content around top pain points
+#### Rebuild content around top pain points
 - Fill the highest-friction gaps: For the top issue around transaction and payment processing states, we added a status definition table in the docs and a visible entry point for a self-serve delay troubleshooting guide.
 - Lower understanding cost with better models: For confusing fees and frequent errors, we stopped scattering explanations and instead added a clear funds-flow diagram and an error-to-fix mapping table.
 
-### 2. Make the docs more AI-readable
+#### Make the docs more AI-readable
 In the AI era, technical docs also have to be findable and understandable to machines:
 
 - Structure and wording: Unify technical terms and field names so synonym drift does not break retrieval, and complete page metadata in front matter.

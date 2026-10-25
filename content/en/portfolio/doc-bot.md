@@ -1,14 +1,16 @@
 ---
-title: "Closing the Docs Feedback Loop with n8n and a Slack Bot"
+title: "Automating Internal Doc Feedback Loop"
 date: 2026-02-01T10:00:00+08:00
 draft: false
 author: "Miaomiao"
 weight: 2
-summary: "To fix scattered docs feedback and broken follow-through, I researched the workflow and built a Slack docs feedback bot on n8n that captures requests automatically, routes them in a structured way, and tracks them through the full lifecycle."
+summary: "To fix scattered docs feedback and broken follow-through, I built a Slack docs feedback bot on n8n that captures requests automatically, routes them in a structured way, and tracks them through the full lifecycle."
 tags:
   - Workflow automation
   - Docs engineering
   - Cross-team collaboration
+  - Docs optimization
+  - n8n
 toc: true
 socialShare: false
 ---
@@ -26,28 +28,28 @@ To break that funnel, I introduced an automation chain and turned fragmented cha
 
 ## Path to production: research, automation, then SOP
 
-I moved in three stages: prove feasibility, build the workflow, then roll out standards inside and outside the writing team.
+I moved along this chain: feasibility check → workflow build → internal and external rollout.
 
-### 1. Research and feasibility
-
+#### 1. Research and feasibility
 Before building, I mapped the internal pain points and checked technical feasibility. Looking at industry practice and bot patterns already used by other teams inside the company, I confirmed we could build an automated request inbox with Slack event listeners and a workflow engine.
 
-### 2. Build the automation and closed loop on n8n
+#### 2. Build the automation and closed loop on n8n
 
 I used n8n as the workflow engine and designed this core flow:
 
 - Capture and acknowledge automatically: When a stakeholder `@`s the docs bot in any channel with docs feedback, the workflow replies in the original thread right away (for example, “✅ Received — the content team is on it”), then forwards a clean package to the TW inbox channel `#tw-feedback-inbox`, including the speaker, original message link, and other metadata.
-- Lightweight status coordination:
-  - When a writer claims a request, they add 👀 on the forwarded message so others know someone owns it and duplicate work is avoided.
-  - If the request needs no docs change, they mark ❌ and archive it.
-- Clean cross-channel closeout: After the docs update ships, the writer does not have to hunt down the original channel. They reply `@doc-bot okk` in the inbox thread, and the bot returns to the original stakeholder thread with a notice such as “This docs update has been published.”
+- Lightweight status coordination: When a writer claims a request, they add 👀 on the forwarded message so others know someone owns it and duplicate work is avoided. If the request needs no docs change, they mark ❌ and archive it.
+- Clean cross-channel closeout: After the docs update ships, the writer does not have to hunt down the original channel. They reply `@doc-bot okk` in the forwarded thread in the internal channel, and the bot returns to the original stakeholder thread with a notice such as “This docs update has been published. Please take note 🙏.”
+
+Stakeholder view: submit a request with `@doc-bot` in a channel and receive the docs update notice:
 
 ![Stakeholder view: submit a request with @doc-bot and receive the publish notice](/images/portfolio/stakeholders.png)
 
+Writer view: manage requests and status flow in the `#tw-feedback` channel:
+
 ![Writer view: manage and move status in #tw-feedback-inbox](/images/portfolio/writer.png)
 
-### 3. Roll out the internal and external SOP
-
+#### 3. Roll out the internal and external SOP
 After the tool worked, adoption mattered:
 
 - Internal alignment: Walk all technical writers through the flow and lock claim and status-marking rules.
