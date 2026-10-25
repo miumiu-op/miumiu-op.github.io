@@ -164,11 +164,11 @@ languages:
         subtitle: "自己开发的网页应用，做着玩：）"
       chat:
         enable: true
-        title: "聊一聊"
+        title: "和我聊天吧"
         placeholder: "问点关于我或项目的事…"
         send: "发送"
         hint: "回答基于本站公开内容。"
-        openLabel: "聊聊"
+        openLabel: "和我聊天吧"
         thinking: "思考中…"
         missingWorker: "聊天后端还没配置，请先部署 Cloudflare Worker。"
         error: "出错了，请稍后再试。"
@@ -281,7 +281,7 @@ params:
     placeholder: "Ask about me or a project…"
     send: "Send"
     hint: "Answers are based on this website’s public content."
-    openLabel: "Chat"
+    openLabel: "Chat with me"
     thinking: "Thinking…"
     missingWorker: "Chat backend is not configured yet. Deploy the Cloudflare Worker first."
     error: "Something went wrong. Please try again."
@@ -355,7 +355,7 @@ params:
     intro: "Hi, I'm"
     title: "Miaomiao"
     subtitle: "Life is short and hard, but work can make it longer"
-    content: "Not a big fan of labels, but if I have to pick some, I'd say technical writer, Vibe Coder, INFJ, and KPop lover."
+    content: "Not a big fan of labels, but if I have to pick some, I'd say technical writer, vibe coder, INFJ, and KPop lover."
     image: /images/me.png
     bottomImage:
       enable: true
