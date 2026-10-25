@@ -1,0 +1,14 @@
+name = "miumiu-site-chat"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Set secrets after deploy:
+#   npx wrangler secret put GEMINI_API_KEY
+#
+# Optional vars:
+[vars]
+SITE_BASE_URL = "https://miumiu-op.github.io"
+GEMINI_MODEL = "gemini-2.0-flash"
+# Per-IP limit: 10 requests / 60 seconds
+RATE_LIMIT_MAX = "10"
+RATE_LIMIT_WINDOW_SEC = "60"

@@ -14,6 +14,11 @@ resources/_gen/
 .DS_Store
 Thumbs.db
 
+# Cloudflare Worker local deps / state (never commit)
+workers/**/node_modules/
+workers/**/.wrangler/
+workers/**/.dev.vars
+
 # 备份与临时文件
 *.swp
 *~

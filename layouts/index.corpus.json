@@ -1,0 +1,31 @@
+{{- $docs := slice -}}
+{{- with .Site.Params.hero -}}
+  {{- $text := printf "%s %s\n%s\n%s" (.intro | default "") (.title | default "") (.subtitle | default "") (.content | default "") -}}
+  {{- $docs = $docs | append (dict "id" "hero" "title" "Hero" "text" $text) -}}
+{{- end -}}
+{{- with .Site.Params.about -}}
+  {{- $skills := "" -}}
+  {{- with .skills -}}
+    {{- $skills = printf "\n%s\n%s" (.title | default "") (delimit (.items | default slice) "\n- " | printf "- %s") -}}
+  {{- end -}}
+  {{- $docs = $docs | append (dict "id" "about" "title" (.title | default "About") "text" (printf "%s%s" (.content | default "") $skills)) -}}
+{{- end -}}
+{{- with .Site.Params.experience -}}
+  {{- $parts := slice -}}
+  {{- range .items -}}
+    {{- $parts = $parts | append (printf "%s @ %s (%s)\n%s" .job .company .date .content) -}}
+  {{- end -}}
+  {{- $docs = $docs | append (dict "id" "experience" "title" (.title | default "Experience") "text" (delimit $parts "\n\n")) -}}
+{{- end -}}
+{{- with .Site.Params.achievements -}}
+  {{- $parts := slice -}}
+  {{- range .items -}}
+    {{- $parts = $parts | append (printf "%s: %s" .title .content) -}}
+  {{- end -}}
+  {{- $docs = $docs | append (dict "id" "achievements" "title" (.title | default "Achievements") "text" (delimit $parts "\n")) -}}
+{{- end -}}
+{{- $sections := slice "portfolio" "projects" -}}
+{{- range where .Site.RegularPages "Section" "in" $sections -}}
+  {{- $docs = $docs | append (dict "id" .File.Path "title" .Title "url" .Permalink "tags" (.Params.tags | default slice) "summary" (.Params.summary | default "") "text" .Plain) -}}
+{{- end -}}
+{{- dict "lang" .Lang "site" .Site.Title "documents" $docs | jsonify -}}

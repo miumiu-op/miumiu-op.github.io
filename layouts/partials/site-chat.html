@@ -1,0 +1,32 @@
+{{- if .Site.Params.chat.enable | default false -}}
+{{- $worker := .Site.Params.chat.workerUrl | default "" -}}
+{{- $title := .Site.Params.chat.title | default "Ask about this site" -}}
+{{- $placeholder := .Site.Params.chat.placeholder | default "Ask a question…" -}}
+{{- $send := .Site.Params.chat.send | default "Send" -}}
+{{- $hint := .Site.Params.chat.hint | default "Answers are based on this website’s content." -}}
+{{- $openLabel := .Site.Params.chat.openLabel | default "Chat" -}}
+<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/site-chat.css">
+<div id="site-chat" class="site-chat" hidden
+  data-worker-url="{{ $worker }}"
+  data-lang="{{ .Lang }}"
+  data-missing-worker="{{ .Site.Params.chat.missingWorker | default "Chat backend is not configured yet." }}"
+  data-error="{{ .Site.Params.chat.error | default "Something went wrong. Please try again." }}"
+  data-thinking="{{ .Site.Params.chat.thinking | default "Thinking…" }}">
+  <button type="button" class="site-chat__fab" id="site-chat-fab" aria-expanded="false" aria-controls="site-chat-panel">
+    {{ $openLabel }}
+  </button>
+  <div class="site-chat__panel" id="site-chat-panel" role="dialog" aria-label="{{ $title }}" hidden>
+    <div class="site-chat__header">
+      <strong>{{ $title }}</strong>
+      <button type="button" class="site-chat__close" id="site-chat-close" aria-label="Close">×</button>
+    </div>
+    <p class="site-chat__hint">{{ $hint }}</p>
+    <div class="site-chat__messages" id="site-chat-messages" aria-live="polite"></div>
+    <form class="site-chat__form" id="site-chat-form">
+      <input type="text" id="site-chat-input" maxlength="500" autocomplete="off" placeholder="{{ $placeholder }}" required>
+      <button type="submit">{{ $send }}</button>
+    </form>
+  </div>
+</div>
+<script src="{{ .Site.Params.staticPath }}/js/site-chat.js" defer></script>
+{{- end -}}

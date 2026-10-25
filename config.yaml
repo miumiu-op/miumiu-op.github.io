@@ -162,6 +162,17 @@ languages:
         enable: true
         title: "编程项目"
         subtitle: "自己开发的网页应用，做着玩：）"
+      chat:
+        enable: true
+        title: "聊一聊"
+        placeholder: "问点关于我或项目的事…"
+        send: "发送"
+        hint: "回答基于本站公开内容。"
+        openLabel: "聊聊"
+        thinking: "思考中…"
+        missingWorker: "聊天后端还没配置，请先部署 Cloudflare Worker。"
+        error: "出错了，请稍后再试。"
+        workerUrl: "https://miumiu-site-chat.orangeswife.workers.dev"
   en:
     languageName: "English"
     languageCode: "en-us"
@@ -221,11 +232,19 @@ languages:
         title: "Coding Projects"
         subtitle: "Web apps I built for fun :)"
 
+outputFormats:
+  CORPUS:
+    mediaType: "application/json"
+    baseName: "chat-corpus"
+    isPlainText: true
+    notAlternative: true
+
 outputs:
   home:
     - "HTML"
     - "RSS"
     - "JSON"
+    - "CORPUS"
   page:
     - "HTML"
     - "RSS"
@@ -254,6 +273,19 @@ params:
   description: "A cool site of Miaomiao Pan"
   # staticPath: ""  # The path to serve the static files from
   favicon: "/favicon.ico"
+
+  # Site chat (Cloudflare Worker + Gemini). Set workerUrl after: cd workers/site-chat && npx wrangler deploy
+  chat:
+    enable: true
+    title: "Chat with me"
+    placeholder: "Ask about me or a project…"
+    send: "Send"
+    hint: "Answers are based on this website’s public content."
+    openLabel: "Chat"
+    thinking: "Thinking…"
+    missingWorker: "Chat backend is not configured yet. Deploy the Cloudflare Worker first."
+    error: "Something went wrong. Please try again."
+    workerUrl: "https://miumiu-site-chat.orangeswife.workers.dev"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
