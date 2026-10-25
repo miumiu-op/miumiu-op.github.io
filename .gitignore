@@ -1,24 +1,30 @@
-.gitignore
-.DS_Store
-.hugo_build.lock
-/static/.DS_Store
-/static/images/.DS_Store
-# Hugo 编译生成的静态目录
-public/
-
-# 本地缓存与锁定文件
-.hugo_build_lock
-resources/_gen/
-
-# 操作系统冗余文件
+# OS junk
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# Cloudflare Worker local deps / state (never commit)
-workers/**/node_modules/
-workers/**/.wrangler/
-workers/**/.dev.vars
-
-# 备份与临时文件
+# Editors
 *.swp
 *~
+.idea/
+.vscode/
+*.code-workspace
+
+# Hugo build output & caches
+public/
+resources/_gen/
+.hugo_build.lock
+.hugo_build_lock
+
+# Node / Cloudflare Worker (local only)
+node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+.cache/
