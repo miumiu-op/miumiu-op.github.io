@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="520" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">Docs structure before and after</title>
+  <desc id="desc">Left: a long undifferentiated FAQ. Right: a layered Dev Hub with callouts and clearer entry points. A small chart shows Intercom troubleshooting questions versus Mintlify API exploration questions.</desc>
+  <defs>
+    <filter id="card" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0f5064" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="880" height="520" fill="#f4f1ed"/>
+
+  <rect x="36" y="48" width="300" height="360" rx="16" fill="#ffffff" filter="url(#card)"/>
+  <text x="56" y="84" fill="#9a3412" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700">BEFORE</text>
+  <text x="56" y="108" fill="#1d1c1d" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">One long FAQ page</text>
+  <rect x="56" y="128" width="260" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="152" width="248" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="176" width="252" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="200" width="236" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="224" width="260" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="248" width="220" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="272" width="248" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="296" width="200" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="320" width="256" height="14" rx="4" fill="#e5e7eb"/>
+  <rect x="56" y="344" width="180" height="14" rx="4" fill="#e5e7eb"/>
+  <text x="56" y="388" fill="#6b7280" font-family="Helvetica, Arial, sans-serif" font-size="12">Hard to scan / weak entry points</text>
+
+  <path d="M360 220 H404" stroke="#2563eb" stroke-width="3" fill="none"/>
+  <path d="M394 208 L412 220 L394 232" fill="#2563eb"/>
+
+  <rect x="432" y="48" width="412" height="360" rx="16" fill="#ffffff" filter="url(#card)"/>
+  <text x="452" y="84" fill="#166534" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700">AFTER</text>
+  <text x="452" y="108" fill="#1d1c1d" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Dev Hub with clear layers</text>
+
+  <rect x="452" y="128" width="176" height="84" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="468" y="156" fill="#1e3a8a" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">Get started</text>
+  <text x="468" y="178" fill="#1e40af" font-family="Helvetica, Arial, sans-serif" font-size="12">Quick path in</text>
+  <text x="468" y="196" fill="#1e40af" font-family="Helvetica, Arial, sans-serif" font-size="12">by task</text>
+
+  <rect x="644" y="128" width="176" height="84" rx="12" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="660" y="156" fill="#14532d" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">API reference</text>
+  <text x="660" y="178" fill="#166534" font-family="Helvetica, Arial, sans-serif" font-size="12">Explore endpoints</text>
+  <text x="660" y="196" fill="#166534" font-family="Helvetica, Arial, sans-serif" font-size="12">with examples</text>
+
+  <rect x="452" y="228" width="368" height="72" rx="12" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="468" y="256" fill="#9a3412" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">Callout: top Intercom issues</text>
+  <text x="468" y="278" fill="#9a3412" font-family="Helvetica, Arial, sans-serif" font-size="12">Webhook retries / auth errors / signing failures</text>
+
+  <rect x="452" y="316" width="176" height="56" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="468" y="350" fill="#334155" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">FAQ by topic</text>
+  <rect x="644" y="316" width="176" height="56" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="660" y="350" fill="#334155" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">Guides by journey</text>
+
+  <rect x="36" y="428" width="808" height="68" rx="14" fill="#ffffff" filter="url(#card)"/>
+  <text x="56" y="458" fill="#1d1c1d" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">Question mix from logs</text>
+  <text x="56" y="478" fill="#6b7280" font-family="Helvetica, Arial, sans-serif" font-size="12">Illustrative split - replace with your real percentages</text>
+  <rect x="360" y="448" width="210" height="18" rx="9" fill="#fb923c"/>
+  <text x="372" y="461" fill="#7c2d12" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700">Intercom troubleshooting</text>
+  <rect x="584" y="448" width="170" height="18" rx="9" fill="#60a5fa"/>
+  <text x="596" y="461" fill="#1e3a8a" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="700">Mintlify API explore</text>
+</svg>
