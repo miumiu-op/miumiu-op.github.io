@@ -3,6 +3,7 @@ title: "Building a 130,000-Word Enterprise Bilingual Security Manual from Scratc
 date: 2026-03-01T10:00:00+08:00
 draft: false
 author: "Miaomiao"
+weight: 1
 summary: "As lead of a two-person writing team, I planned and delivered a 130,000-word bilingual digital asset security manual end to end, with a focus on project management, cross-team alignment, content architecture, and Chinese–English translation."
 tags:
   - White paper

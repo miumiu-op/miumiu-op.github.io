@@ -18,25 +18,11 @@ languages:
           name: "关于我"
           url: "/zh/#about"
           weight: 1
-        - identifier: dropdown
+        - identifier: docs-projects
           name: 文档项目
           title: 文档项目
+          url: "/zh/#docs-projects"
           weight: 2
-        - identifier: dropdown-custody
-          name: 双语安全手册
-          url: "/zh/portfolio/custody-security/"
-          parent: dropdown
-          weight: 1
-        - identifier: dropdown-docbot
-          name: 文档反馈闭环
-          url: "/zh/portfolio/doc-bot/"
-          parent: dropdown
-          weight: 2
-        - identifier: dropdown-dx
-          name: 数据驱动的文档
-          url: "/zh/portfolio/docs-feedback/"
-          parent: dropdown
-          weight: 3
         - identifier: experience
           name: "工作经验"
           url: "/zh/#experience"
@@ -44,7 +30,7 @@ languages:
         - identifier: projects
           name: 编程项目
           title: 编程项目
-          url: /zh/projects/
+          url: /zh/#projects
           weight: 4
         - identifier: achievements
           name: "成就"
@@ -168,6 +154,10 @@ languages:
         pageNotFound: "页面未找到"
         emailText: "查看此网站"
         knowMore: "了解更多"
+      docsProjects:
+        enable: true
+        title: "文档项目"
+        subtitle: "技术写作与文档工程相关实践。"
       projects:
         enable: true
         title: "编程项目"
@@ -184,25 +174,11 @@ languages:
           name: About Me
           url: "/#about"
           weight: 1
-        - identifier: dropdown
+        - identifier: docs-projects
           name: Documentation Projects
           title: Documentation Projects
+          url: "/#docs-projects"
           weight: 2
-        - identifier: dropdown-custody
-          name: Bilingual Security Manual
-          url: "/portfolio/custody-security/"
-          parent: dropdown
-          weight: 1
-        - identifier: dropdown-docbot
-          name: Docs Feedback Loop
-          url: "/portfolio/doc-bot/"
-          parent: dropdown
-          weight: 2
-        - identifier: dropdown-dx
-          name: Data-Driven Docs
-          url: "/portfolio/docs-feedback/"
-          parent: dropdown
-          weight: 3
         - identifier: experience
           name: Working Experience
           url: "/#experience"
@@ -210,7 +186,7 @@ languages:
         - identifier: projects
           name: Coding Projects
           title: Coding Projects
-          url: /projects/
+          url: /#projects
           weight: 4
         - identifier: achievements
           name: Achievements
@@ -236,6 +212,14 @@ languages:
           disableAchievements: true
           disableProjects: true
           disableContact: true
+      docsProjects:
+        enable: true
+        title: "Documentation Projects"
+        subtitle: "Technical writing and docs engineering work."
+      projects:
+        enable: true
+        title: "Coding Projects"
+        subtitle: "Web apps I built for fun :)"
 
 outputs:
   home:
@@ -463,9 +447,14 @@ params:
       - title: Online Learning Certificates
         content: I completed multiple online learning programs, including Intro to SQL by Kaggle, Software Engineering Virtual Experience Program by EA, Postman API Fundamentals Student Expert, etc.
 
+  docsProjects:
+    enable: true
+    title: "Documentation Projects"
+    subtitle: "Technical writing and docs engineering work."
+
   projects:
     enable: true
-    title: "Vibe Coding Apps"
+    title: "Coding Projects"
     subtitle: "Web apps I built for fun :)"
 
   footer:

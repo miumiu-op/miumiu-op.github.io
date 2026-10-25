@@ -3,6 +3,7 @@ title: "Closing the Docs Feedback Loop with n8n and a Slack Bot"
 date: 2026-02-01T10:00:00+08:00
 draft: false
 author: "Miaomiao"
+weight: 2
 summary: "To fix scattered docs feedback and broken follow-through, I researched the workflow and built a Slack docs feedback bot on n8n that captures requests automatically, routes them in a structured way, and tracks them through the full lifecycle."
 tags:
   - Workflow automation

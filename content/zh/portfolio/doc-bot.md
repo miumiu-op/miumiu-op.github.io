@@ -3,6 +3,7 @@ title: "基于 n8n 与 Slack Bot 自动化构建文档反馈闭环"
 date: 2026-02-01T10:00:00+08:00
 draft: false
 author: "Miaomiao"
+weight: 2
 summary: "为了解决文档反馈散落、闭环断裂的痛点，通过前期调研与 n8n 工作流搭建 Slack 文档反馈机器人，实现需求的自动化捕获、结构化路由与全生命周期追踪。"
 tags:
 - 工作流自动化

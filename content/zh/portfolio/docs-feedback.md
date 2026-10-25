@@ -3,6 +3,7 @@ title: "数据驱动的文档工程：基于 Mintlify AI 问答与反馈闭环�
 date: 2026-02-15T10:00:00+08:00
 draft: false
 author: "Miaomiao"
+weight: 3
 summary: "通过文档站问答机器人的数据埋点，构建‘日志导出 ➔ AI 辅助清洗与高频归类 ➔ 针对性优化 ➔ 效果验证’的持续迭代闭环，显著提升文档自助率与开发者体验。"
 tags:
 - 数据驱动

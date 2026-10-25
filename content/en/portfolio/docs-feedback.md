@@ -3,6 +3,7 @@ title: "Data-Driven Docs Engineering: Continuous Improvement from Mintlify AI Q&
 date: 2026-02-15T10:00:00+08:00
 draft: false
 author: "Miaomiao"
+weight: 3
 summary: "Using docs-site Q&A bot telemetry, I built a continuous loop of export logs → AI-assisted cleaning and clustering → targeted fixes → impact checks, which improved self-serve rates and developer experience."
 tags:
   - Data-driven
