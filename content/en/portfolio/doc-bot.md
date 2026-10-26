@@ -4,7 +4,7 @@ date: 2026-02-01T10:00:00+08:00
 draft: false
 author: "Miaomiao"
 weight: 2
-summary: "To fix scattered docs feedback and broken follow-through, I built a Slack docs feedback bot on n8n that captures requests automatically, routes them in a structured way, and tracks them through the full lifecycle."
+summary: "To solve fragmented feedback and broken follow-through across teams, I designed and deployed a Slack docs feedback bot using n8n that automatically captures requests, routes them with clear internal status, and closes the communication loop."
 tags:
   - Workflow automation
   - Docs engineering
@@ -15,51 +15,51 @@ toc: true
 socialShare: false
 ---
 
-In day-to-day technical docs maintenance, one lasting pain point is how feedback moves and how its lifecycle is managed.
+In day-to-day technical documentation management, a persistent operational bottleneck is managing the lifecycle of incoming feedback and requests.
 
-In practice, both sides felt the friction:
+In practice, both sides experienced friction:
 
-- External stakeholders (support, solutions, engineering, and others): Often did not know which writer to ping. After raising a request, they had to chase progress across many chat threads.
-- The technical writing team: Feedback lived in countless Slack threads, lost context over time, and often broke the loop because writers forgot to notify the requester after the docs shipped.
+- **External Stakeholders (CS, Solutions, Engineering):** Often didn't know which technical writer was responsible for a specific module. After raising a request in a channel, they had to chase progress across unstructured chat threads.
+- **The Technical Writing Team:** Incoming feedback was scattered across dozens of active Slack threads, making context easily lost over time and frequently breaking the feedback loop when writers forgot to notify requesters after publishing updates.
 
-To break that funnel, I introduced an automation chain and turned fragmented chat into a standard request flow with a closed loop.
-
----
-
-## Path to production: research, automation, then SOP
-
-I moved along this chain: feasibility check → workflow build → internal and external rollout.
-
-#### 1. Research and feasibility
-Before building, I mapped the internal pain points and checked technical feasibility. Looking at industry practice and bot patterns already used by other teams inside the company, I confirmed we could build an automated request inbox with Slack event listeners and a workflow engine.
-
-#### 2. Build the automation and closed loop on n8n
-
-I used n8n as the workflow engine and designed this core flow:
-
-- Capture and acknowledge automatically: When a stakeholder `@`s the docs bot in any channel with docs feedback, the workflow replies in the original thread right away (for example, “✅ Received — the content team is on it”), then forwards a clean package to the TW inbox channel `#tw-feedback-inbox`, including the speaker, original message link, and other metadata.
-- Lightweight status coordination: When a writer claims a request, they add 👀 on the forwarded message so others know someone owns it and duplicate work is avoided. If the request needs no docs change, they mark ❌ and archive it.
-- Clean cross-channel closeout: After the docs update ships, the writer does not have to hunt down the original channel. They reply `@doc-bot okk` in the forwarded thread in the internal channel, and the bot returns to the original stakeholder thread with a notice such as “This docs update has been published. Please take note 🙏.”
-
-Stakeholder view: submit a request with `@doc-bot` in a channel and receive the docs update notice:
-
-![Stakeholder view: submit a request with @doc-bot and receive the publish notice](/images/portfolio/stakeholders.png)
-
-Writer view: manage requests and status flow in the `#tw-feedback` channel:
-
-![Writer view: manage and move status in #tw-feedback-inbox](/images/portfolio/writer.png)
-
-#### 3. Roll out the internal and external SOP
-After the tool worked, adoption mattered:
-
-- Internal alignment: Walk all technical writers through the flow and lock claim and status-marking rules.
-- External alignment: Roll the new mechanism out to stakeholders and ask them to submit docs requests through `@doc-bot` and check progress there, instead of scattering asks in private chats.
+To eliminate this operational friction, I built an automated workflow that transformed ad-hoc chat mentions into a standardized, closed-loop request management pipeline.
 
 ---
 
-## Value and next steps
+## Implementation Path: Research, Automation, and SOP Rollout
 
-- Kill the communication funnel: Cross-team docs feedback became fully traceable and structured. Chat history no longer disappeared into unsearchable threads.
-- Low maintenance friction: The loop stayed light and usable without adding a heavy system such as Jira.
+I executed this project across three key phases: feasibility assessment → workflow design → internal and external SOP rollout.
 
-> What’s next: The same automation frame can grow further, for example with automatic request tagging (API docs vs guides) and monthly or quarterly feedback reports, so docs quality keeps improving from real data.
+#### 1. Feasibility Assessment & Scope
+Before building, I audited internal feedback patterns and evaluated technical feasibility. Drawing inspiration from internal developer bot patterns, I confirmed that leveraging Slack Event Subscriptions connected to a low-code automation engine (n8n) could create a centralized, zero-friction 'docs inbox.'
+
+#### 2. Building the Closed-Loop Workflow on n8n
+
+Using **n8n** as our orchestration engine, I designed a dual-perspective workflow that seamlessly aligns stakeholder ease of use with writer team tracking:
+
+- **Automated Capture & Acknowledgement (Stakeholder View):** When a stakeholder mentions `@doc-bot` in any Slack channel, the workflow immediately posts an inline confirmation in the thread (e.g., *"✅ Received — the docs team is on it"*). Simultaneously, it parses and forwards a structured payload (requester, original message permalink, timestamp, and context) to our dedicated internal channel, `#tw-feedback-inbox`.
+- **Lightweight Status Coordination (Writer View):** When a writer claims a request, they add an 👀 reaction to the forwarded message in `#tw-feedback-inbox` to signal ownership and prevent duplicate effort. If a request requires no documentation changes, they react with ❌ to close and archive it.
+- **Cross-Channel Auto-Closure:** Once a doc update is published, the writer simply replies `@doc-bot okk` within the internal inbox thread. The bot automatically locates the original stakeholder thread across channels and posts a publication confirmation (e.g., *"This docs update has been published. Please take note 🙏"*).
+
+Stakeholder view: Submitting a request via `@doc-bot` and receiving an automated publication notice:
+
+![Stakeholder view: submitting a request with @doc-bot and receiving the publish notice](/images/portfolio/stakeholders.png)
+
+Writer view: Managing request intake and reaction-based status flow in `#tw-feedback-inbox`:
+
+![Writer view: managing and moving status in #tw-feedback-inbox](/images/portfolio/writer.png)
+
+#### 3. Standard Operating Procedure (SOP) Rollout
+Tooling alone doesn't change habits, so I actively managed organizational adoption:
+
+- **Internal Alignment:** Onboarded all technical writers to the `#tw-feedback-inbox` workflow, standardizing ticket claiming and reaction-based status conventions.
+- **External Alignment:** Communicated the new flow to cross-functional stakeholders, establishing `@doc-bot` as the single canonical entry point for all documentation requests and status tracking, eliminating unstructured private DMs.
+
+---
+
+## Results & Business Value
+
+- **Eliminating the Feedback Black Hole:** Created 100% traceability for cross-team documentation requests. Feedback is now centrally managed, structured, and audit-ready.
+- **Low Operational Overhead:** Leveraged native Slack reactions and cross-channel threading to achieve complete lifecycle tracking without forcing teams to adopt heavy, high-friction tools like Jira for minor doc fixes.
+
+> **Future Scope:** This automation framework is designed to scale. Next steps include automated request categorization (e.g., tagging API reference vs. user guide requests) and quarterly feedback analytics to continually drive content strategy with real operational data.
