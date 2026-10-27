@@ -8,9 +8,9 @@ function corsHeaders(origin) {
   const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
   return {
     "Access-Control-Allow-Origin": allow,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
-    "Vary": "Origin",
+    Vary: "Origin",
   };
 }
 
@@ -46,10 +46,6 @@ function clientIp(request) {
   );
 }
 
-/**
- * Fixed-window rate limit via Cache API (no KV binding needed).
- * Returns { ok, retryAfterSec }.
- */
 async function checkRateLimit(request, env) {
   const max = Number(env.RATE_LIMIT_MAX || 10);
   const windowSec = Number(env.RATE_LIMIT_WINDOW_SEC || 60);
@@ -70,7 +66,7 @@ async function checkRateLimit(request, env) {
         resetAt = data.resetAt;
       }
     } catch {
-      // treat as empty window
+      // empty window
     }
   }
 
@@ -96,116 +92,167 @@ async function checkRateLimit(request, env) {
   return { ok: true, retryAfterSec: 0 };
 }
 
+async function readHitCount(env) {
+  if (!env.SITE_HITS) return 0;
+  const raw = await env.SITE_HITS.get("site_pv");
+  return Number(raw) || 0;
+}
+
+async function handleVisits(request, env, origin) {
+  if (!env.SITE_HITS) {
+    return json({ error: "Visit counter storage is not configured" }, 500, origin);
+  }
+
+  let count = await readHitCount(env);
+
+  if (request.method === "GET") {
+    return json({ count }, 200, origin);
+  }
+
+  if (request.method !== "POST") {
+    return json({ error: "Method not allowed" }, 405, origin);
+  }
+
+  // Dedup: same IP only increments once per VISIT_DEDUP_SEC (default 6h)
+  const dedupSec = Number(env.VISIT_DEDUP_SEC || 21600);
+  const ip = clientIp(request);
+  const dedupKey = new Request(
+    `https://miumiu-site-chat.visit-dedup/${encodeURIComponent(ip)}`
+  );
+  const cache = caches.default;
+  const already = await cache.match(dedupKey);
+
+  if (!already) {
+    count += 1;
+    await env.SITE_HITS.put("site_pv", String(count));
+    await cache.put(
+      dedupKey,
+      new Response("1", {
+        headers: { "Cache-Control": `max-age=${Math.max(60, dedupSec)}` },
+      })
+    );
+  }
+
+  return json({ count }, 200, origin);
+}
+
+async function handleChat(request, env, origin) {
+  if (request.method !== "POST") {
+    return json({ error: "Method not allowed" }, 405, origin);
+  }
+
+  const limited = await checkRateLimit(request, env);
+  if (!limited.ok) {
+    return json(
+      { error: `Too many requests. Try again in ${limited.retryAfterSec}s.` },
+      429,
+      origin,
+      { "Retry-After": String(limited.retryAfterSec) }
+    );
+  }
+
+  if (!env.GEMINI_API_KEY) {
+    return json({ error: "Server missing GEMINI_API_KEY" }, 500, origin);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Invalid JSON body" }, 400, origin);
+  }
+
+  const question = String(body.question || "").trim();
+  const lang = body.lang === "zh" ? "zh" : "en";
+
+  if (!question) {
+    return json({ error: "Question is required" }, 400, origin);
+  }
+  if (question.length > 500) {
+    return json({ error: "Question is too long (max 500 characters)" }, 400, origin);
+  }
+
+  const siteBase = (env.SITE_BASE_URL || "https://miumiu-op.github.io").replace(/\/$/, "");
+  const corpusUrl =
+    lang === "zh" ? `${siteBase}/zh/chat-corpus.json` : `${siteBase}/chat-corpus.json`;
+
+  let corpus;
+  try {
+    const corpusRes = await fetch(corpusUrl, {
+      cf: { cacheTtl: 3600, cacheEverything: true },
+    });
+    if (!corpusRes.ok) {
+      throw new Error(`corpus HTTP ${corpusRes.status}`);
+    }
+    corpus = await corpusRes.json();
+  } catch (err) {
+    return json({ error: `Failed to load site corpus: ${err.message}` }, 502, origin);
+  }
+
+  const context = buildContext(corpus.documents);
+  const system = [
+    "You are a helpful assistant for Miaomiao Pan's personal website.",
+    "Answer ONLY using the website content provided below.",
+    "If the answer is not in the content, say you don't know based on the site.",
+    "Keep answers concise and clear (usually 2–6 short sentences).",
+    "Reply in the same language as the user's question.",
+    "",
+    "WEBSITE CONTENT:",
+    context,
+  ].join("\n");
+
+  const model = env.GEMINI_MODEL || "gemini-3.6-flash";
+  const geminiUrl =
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent` +
+    `?key=${encodeURIComponent(env.GEMINI_API_KEY)}`;
+
+  let geminiRes;
+  try {
+    geminiRes = await fetch(geminiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: system }] },
+        contents: [{ role: "user", parts: [{ text: question }] }],
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: 512,
+        },
+      }),
+    });
+  } catch (err) {
+    return json({ error: `Gemini request failed: ${err.message}` }, 502, origin);
+  }
+
+  const geminiData = await geminiRes.json().catch(() => ({}));
+  if (!geminiRes.ok) {
+    const msg = geminiData?.error?.message || `Gemini HTTP ${geminiRes.status}`;
+    return json({ error: msg }, 502, origin);
+  }
+
+  const answer =
+    geminiData?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("")?.trim() || "";
+
+  if (!answer) {
+    return json({ error: "Empty response from model" }, 502, origin);
+  }
+
+  return json({ answer }, 200, origin);
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
+    const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
-    if (request.method !== "POST") {
-      return json({ error: "Method not allowed" }, 405, origin);
+    if (url.pathname === "/visits" || url.pathname === "/visits/") {
+      return handleVisits(request, env, origin);
     }
 
-    const limited = await checkRateLimit(request, env);
-    if (!limited.ok) {
-      return json(
-        {
-          error: `Too many requests. Try again in ${limited.retryAfterSec}s.`,
-        },
-        429,
-        origin,
-        { "Retry-After": String(limited.retryAfterSec) }
-      );
-    }
-
-    if (!env.GEMINI_API_KEY) {
-      return json({ error: "Server missing GEMINI_API_KEY" }, 500, origin);
-    }
-
-    let body;
-    try {
-      body = await request.json();
-    } catch {
-      return json({ error: "Invalid JSON body" }, 400, origin);
-    }
-
-    const question = String(body.question || "").trim();
-    const lang = body.lang === "zh" ? "zh" : "en";
-
-    if (!question) {
-      return json({ error: "Question is required" }, 400, origin);
-    }
-    if (question.length > 500) {
-      return json({ error: "Question is too long (max 500 characters)" }, 400, origin);
-    }
-
-    const siteBase = (env.SITE_BASE_URL || "https://miumiu-op.github.io").replace(/\/$/, "");
-    const corpusUrl =
-      lang === "zh" ? `${siteBase}/zh/chat-corpus.json` : `${siteBase}/chat-corpus.json`;
-
-    let corpus;
-    try {
-      const corpusRes = await fetch(corpusUrl, {
-        cf: { cacheTtl: 3600, cacheEverything: true },
-      });
-      if (!corpusRes.ok) {
-        throw new Error(`corpus HTTP ${corpusRes.status}`);
-      }
-      corpus = await corpusRes.json();
-    } catch (err) {
-      return json({ error: `Failed to load site corpus: ${err.message}` }, 502, origin);
-    }
-
-    const context = buildContext(corpus.documents);
-    const system = [
-      "You are a helpful assistant for Miaomiao Pan's personal website.",
-      "Answer ONLY using the website content provided below.",
-      "If the answer is not in the content, say you don't know based on the site.",
-      "Keep answers concise and clear (usually 2–6 short sentences).",
-      "Reply in the same language as the user's question.",
-      "",
-      "WEBSITE CONTENT:",
-      context,
-    ].join("\n");
-
-    const model = env.GEMINI_MODEL || "gemini-3.6-flash";
-    const geminiUrl =
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent` +
-      `?key=${encodeURIComponent(env.GEMINI_API_KEY)}`;
-
-    let geminiRes;
-    try {
-      geminiRes = await fetch(geminiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: system }] },
-          contents: [{ role: "user", parts: [{ text: question }] }],
-          generationConfig: {
-            temperature: 0.3,
-            maxOutputTokens: 512,
-          },
-        }),
-      });
-    } catch (err) {
-      return json({ error: `Gemini request failed: ${err.message}` }, 502, origin);
-    }
-
-    const geminiData = await geminiRes.json().catch(() => ({}));
-    if (!geminiRes.ok) {
-      const msg = geminiData?.error?.message || `Gemini HTTP ${geminiRes.status}`;
-      return json({ error: msg }, 502, origin);
-    }
-
-    const answer =
-      geminiData?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("")?.trim() || "";
-
-    if (!answer) {
-      return json({ error: "Empty response from model" }, 502, origin);
-    }
-
-    return json({ answer }, 200, origin);
+    return handleChat(request, env, origin);
   },
 };

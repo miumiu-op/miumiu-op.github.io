@@ -12,7 +12,9 @@ npx wrangler deploy
 npx wrangler secret put GEMINI_API_KEY
 ```
 
-Rate limit (default): **10 requests / IP / 60 seconds**. Change via `RATE_LIMIT_MAX` and `RATE_LIMIT_WINDOW_SEC` in `wrangler.toml`, then redeploy.
+Rate limit (default): **10 chat requests / IP / 60 seconds**. Change via `RATE_LIMIT_MAX` and `RATE_LIMIT_WINDOW_SEC` in `wrangler.toml`, then redeploy.
+
+Visit counter: `GET|POST /visits` stores a public page-view total in KV (`SITE_HITS`). Same IP is counted at most once per `VISIT_DEDUP_SEC` (default 6 hours).
 
 Copy the Worker URL (e.g. `https://miumiu-site-chat.<account>.workers.dev`) into root `config.yaml`:
 

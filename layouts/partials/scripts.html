@@ -103,6 +103,8 @@
 {{ end }}
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{{- if .Site.Params.visitCounter.enable | default true -}}
+<script src="{{ .Site.Params.staticPath }}/js/site-visits.js" defer></script>
+{{- end -}}
 
 {{ partial "site-chat.html" . }}

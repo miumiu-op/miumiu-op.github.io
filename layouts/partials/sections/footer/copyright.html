@@ -7,7 +7,10 @@
                         height="40px" width="40px">
                 </a>
             </div>
-            <div><span id="busuanzi_value_site_pv"></span> visits</div>
+            {{- $visitEndpoint := .Site.Params.visitCounter.endpoint | default .Site.Params.chat.workerUrl | default "" -}}
+            {{- if .Site.Params.visitCounter.enable | default true -}}
+            <div><span id="site-visit-count" data-endpoint="{{ $visitEndpoint }}"></span> {{ .Site.Params.visitCounter.label | default "visits" }}</div>
+            {{- end -}}
             &copy; {{ now.Format "2006"}} {{ .Site.Params.copyright }} {{ .Site.Params.terms.copyright | default "All Rights Reserved" }}
             <div class="text-secondary">
                 Made with

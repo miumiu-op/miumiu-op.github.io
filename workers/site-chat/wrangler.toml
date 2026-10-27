@@ -4,11 +4,17 @@ compatibility_date = "2024-11-01"
 
 # Set secrets after deploy:
 #   npx wrangler secret put GEMINI_API_KEY
-#
-# Optional vars:
+
+[[kv_namespaces]]
+binding = "SITE_HITS"
+id = "a3121b464fdc4ab4b7abe5ce9522ab55"
+preview_id = "f74b0eead6e24af3ba087e0730b14e59"
+
 [vars]
 SITE_BASE_URL = "https://miumiu-op.github.io"
 GEMINI_MODEL = "gemini-3.6-flash"
-# Per-IP limit: 10 requests / 60 seconds
+# Chat: per-IP limit
 RATE_LIMIT_MAX = "10"
 RATE_LIMIT_WINDOW_SEC = "60"
+# Visits: at most 1 counted hit per IP per this many seconds
+VISIT_DEDUP_SEC = "21600"
